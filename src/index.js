@@ -52,9 +52,11 @@ class UserList extends React.Component {
     console.log("A");
   }
   render() {
-    const users = this.state.users.map(user => {
+    // I need the "i" in the argument (user, i) to solve the warning named " Each child in an array or iterator should have a unique "key" prop"
+    const users = this.state.users.map((user, i) => {
       return (
         <User
+          key={i}
           name={user.name.first}
           lastName={user.name.last}
           login={user.login.username}
