@@ -22,7 +22,13 @@ function FetchUsers() {
 function User(props) {
   return (
     <section>
-      <h1>{props.firstname}</h1>
+      <h1>{props.name}</h1>
+      <h2>{props.lastName}</h2>
+      <h2>{props.login}</h2>
+      <h2>{props.latitude}</h2>
+      <h2>{props.longitude}</h2>
+      <img src={props.image} alt={"logo"} />
+      <button />
     </section>
   );
 }
@@ -41,7 +47,16 @@ class UserList extends React.Component {
   }
   render() {
     const users = this.state.users.map(user => {
-      return <User firstname={user.name.first} />;
+      return (
+        <User
+          name={user.name.first}
+          lastName={user.name.last}
+          login={user.login.username}
+          latitude={user.location.coordinates.latitude}
+          longitude={user.location.coordinates.longitude}
+          image={user.picture.large}
+        />
+      );
     });
     return (
       <div>
