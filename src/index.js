@@ -41,16 +41,11 @@ class UserList extends React.Component {
     const index = copy.findIndex(u => {
       return u.login.md5 === id;
     });
-    console.log(index);
     copy.splice(index, 1);
-    console.log(copy);
     this.setState({
       users: copy
     });
   };
-  test() {
-    console.log("A");
-  }
   render() {
     // I need the "i" in the argument (user, i) to solve the warning named " Each child in an array or iterator should have a unique "key" prop"
     const users = this.state.users.map((user, i) => {
